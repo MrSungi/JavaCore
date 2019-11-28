@@ -45,7 +45,13 @@ public class StudyProgram {
     @Override
     public String toString() {
         return code +
-                ".  name='" + name + '\'' +
-                ", department='" + department + '\'';
+                ".  '" + name + '\'' +
+                ", '" + department + '\'';
     }
+
+    public void addGroup(Group g){
+        groups.add(g);
+    }
+
+
 }
