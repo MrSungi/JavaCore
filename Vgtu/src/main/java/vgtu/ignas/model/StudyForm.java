@@ -1,5 +1,7 @@
 package vgtu.ignas.model;
 
-public enum StudyForm {
+import java.io.Serializable;
+
+public enum StudyForm implements Serializable {
     INDIRECT, PROLONGED;
 }

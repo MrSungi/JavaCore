@@ -1,8 +1,9 @@
 package vgtu.ignas.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class StudyProgram {
+public class StudyProgram implements Serializable {
 
     int code;
     String name;
@@ -16,6 +17,11 @@ public class StudyProgram {
         code = codeGenerate;
         codeGenerate++;
     }
+
+    public static void setCodeGenerate(int id){
+        codeGenerate = id;
+    }
+
 
     public int getCode() {
         return code;

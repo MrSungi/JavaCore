@@ -5,9 +5,10 @@ import vgtu.ignas.model.Student;
 import vgtu.ignas.model.StudyForm;
 import vgtu.ignas.model.StudyProgram;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class StudentInfo {
+public class StudentInfo implements Serializable {
     ArrayList<StudyProgram> programs = new ArrayList();
 
     public StudyProgram createStudyProgram(String name, String department) {
@@ -102,7 +103,7 @@ public class StudentInfo {
     public Group createGroup(int spId, String code, StudyForm s, int year){
         StudyProgram sp = getStudyProgramInfo(spId);
         if(sp!=null){
-            Group group = new Group(code, s, year);
+            Group group = new Group(spId, code, s, year);
             sp.addGroup(group);
             return group;
         }
@@ -158,7 +159,7 @@ public class StudentInfo {
     public Student registerStudent(int gId, String name, String surname,Group group, boolean studies ){
         Group g = getGroupInfo(gId);
         if(g!=null){
-            Student student = new Student(name, surname, group, studies);
+            Student student = new Student(gId, name, surname, group, studies);
             g.addStudent(student);
             return student;
         }
