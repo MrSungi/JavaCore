@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+         <bean id="johnny" class="com.springboot.homework.springboothomework.objects.Footballer">
+                 <constructor-arg value="Johnny from Spring"/>
+         </bean>
+
+         <bean id="goetze" class="com.springboot.homework.springboothomework.objects.NationalTeamPlayer">
+                <constructor-arg value="Mario Götze"/>
+         </bean>
+
+         <bean id="bayern" class="com.springboot.homework.springboothomework.objects.NationalTeamTshirt">
+                <constructor-arg value="Bayern"/>
+        </bean>
+
+        <bean id="dortmund" class="com.springboot.homework.springboothomework.objects.NationalTeamTshirt">
+                <constructor-arg value=""/>
+                <property name="logo" ref="borussia"/>
+        </bean>
+
+        <bean id="football" class="com.springboot.homework.springboothomework.objects.Football">
+        </bean>
+
+        <bean id="muenchen" class="java.lang.String">
+                <constructor-arg value="Bayern München"/>
+        </bean>
+
+        <bean id="borussia" class="java.lang.String">
+                <constructor-arg value="Dortmund Borussia"/>
+        </bean>
+
+        <bean id="nteam" class="java.lang.String">
+                <constructor-arg value="Germany"/>
+        </bean>
+
+
+</beans>

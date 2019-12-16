@@ -1,0 +1,31 @@
+form{
+    margin-right: 1000px;
+    background-color: palevioletred;
+    color: blueviolet;
+    font-family: Jokerman;
+
+}
+input:hover{
+    background-color: deepskyblue;
+    color: blueviolet;
+    font-family: Jokerman;
+
+}
+input{
+    background-color: blueviolet;
+    color: deepskyblue;
+    font-family: Jokerman;
+}
+body{
+    background-color: palevioletred;
+    font-family: Jokerman;
+}
+p{
+    color: blueviolet;
+    font-family: Jokerman;
+}
+
+h3{
+    color: blueviolet;
+    font-family: Jokerman;
+}

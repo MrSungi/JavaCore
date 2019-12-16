@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>SEXY Login Form</title>
+    <link href="loginstyle.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h3>Sexy Login Form</h3>
+<hr/>
+<p>Login to SecuredServlet</p>
+<form name="loginForm" method="POST" action="/SecuredServlet">
+    <p>User name : <input type="text" name="username" /> </p>
+    <p>Password : <input type="password" name="passwd" /> </p>
+    <p><input type="submit" value="Login" name="btnLogin"/>&nbsp;
+        <input type="reset" value="Clear" name="btnClear" /></p>
+</form>
+
+<p>Login to ShowRequestHeaders</p>
+<form name="loginForm" method="POST" action="/ShowRequestHeaders">
+    <p>User name : <input type="text" name="username" /> </p>
+    <p>Password : <input type="password" name="passwd" /> </p>
+    <p><input type="submit" value="Login" name="btnLogin"/>&nbsp;
+        <input type="reset" value="Clear" name="btnClear" /></p>
+</form>
+</body>
+</html>

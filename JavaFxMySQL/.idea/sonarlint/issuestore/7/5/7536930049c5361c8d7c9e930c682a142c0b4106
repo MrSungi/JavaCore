@@ -1,0 +1,6 @@
+
+Ž"squid:ClassVariableVisibilityCheck"TMake userLang a static final constant or non-public and provide accessors if needed.(’—£ºüÿÿÿÿ8ºÂßþÇ-
+Ž"squid:ClassVariableVisibilityCheck
+"TMake userName a static final constant or non-public and provide accessors if needed.(÷„‹òúÿÿÿÿ8ºÂßþÇ-
+Š"squid:ClassVariableVisibilityCheck"UMake userEmail a static final constant or non-public and provide accessors if needed.(­¿ç¦8ºÂßþÇ-
+‡"squid:ClassVariableVisibilityCheck	"RMake userId a static final constant or non-public and provide accessors if needed.(ÓÀ½“8ºÂßþÇ-

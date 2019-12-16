@@ -1,0 +1,1 @@
+Now we are using Buffered Streams. The same IO Streams but we will wrap them in a buffer for better performance!

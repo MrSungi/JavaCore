@@ -1,0 +1,54 @@
+body{
+    font-family: "Copperplate Gothic Bold", sans-serif;
+    margin: auto;
+    width: 960px;
+}
+
+aside{
+    width:280px;
+    float:right;
+    color: yellow;
+    background-color: darkgreen;
+    text-align:center;
+    font-weight:bold;
+    padding:20px;
+    margin-left:20px;
+}
+
+header{
+    background-image: url("header.jpg");
+    height:100px;
+    margin-bottom:70px;
+}
+
+a:link, a:visited{
+    text-decoration:none;
+    color:brown;
+    font-weight:bold;
+}
+a:hover{
+    color:black;
+}
+nav ul{
+    list-style-type:none;
+    padding:0;
+}
+nav li{
+    display:inline;
+    float:left;
+}
+nav a:link, nav a:visited{
+    background-color: darkslategray;
+    color:white;
+    display:block;
+    width:160px;
+    text-align:center;
+    padding:10px 0;
+    margin-top: 100px;
+}
+nav a:hover{
+    background-color:black;
+}
+table, th, td {
+    border: 5px solid black;
+}

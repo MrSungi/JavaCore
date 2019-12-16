@@ -1,0 +1,70 @@
+
+Nsquid:S5411¤"*Use the primitive boolean expression here.(˜•àÕşÿÿÿÿ8óÒşÇ-
+vsquid:S1450!"SRemove the "data" field and declare it as a local variable in the relevant methods.(°¨ğıÿÿÿÿ8óÒşÇ-
+Gsquid:S1148Œ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8óÒşÇ-
+Jsquid:S1659"'Declare "userEmail" on a separate line.(ƒäêŠüÿÿÿÿ8óÒşÇ-
+nsquid:CommentedOutCodeLine%"<This block of commented-out lines of code should be removed.(÷ò¯¿ÿÿÿÿÿ8óÒşÇ-
+Fsquid:S1148q"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8óÒşÇ-
+Jsquid:S1659"'Declare "updateBtn" on a separate line.(´ä¤Åüÿÿÿÿ8óÒşÇ-
+V
+squid:S106`"9Replace this use of System.out or System.err by a logger.(–Ú¤•8óÒşÇ-
+W
+squid:S106³"9Replace this use of System.out or System.err by a logger.(¾õ›÷8óÒşÇ-
+osquid:CommentedOutCodeLine«"<This block of commented-out lines of code should be removed.(Âå·åûÿÿÿÿ8óÒşÇ-
+nsquid:S2095Ç"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÖÁÀÎ8óÒşÇ-
+\
+squid:S106à"9Replace this use of System.out or System.err by a logger.(û¡¥âüÿÿÿÿ8óÒşÇ-
+Fsquid:S1659Á"'Declare "tempEmail" on a separate line.(É²Íè8óÒşÇ-
+[
+squid:S1065"9Replace this use of System.out or System.err by a logger.(„ãµßúÿÿÿÿ8óÒşÇ-
+Isquid:S1659"&Declare "language" on a separate line.(È§‘ıÿÿÿÿ8óÒşÇ-
+Jsquid:S1659"'Declare "insertBtn" on a separate line.(´ä¤Åüÿÿÿÿ8óÒşÇ-
+Psquid:S1659"-Declare "storedProcedure" on a separate line.(È§‘ıÿÿÿÿ8óÒşÇ-
+fsquid:S2095§"GUse try-with-resources or close this "Statement" in a "finally" clause.(×ğÍ8óÒşÇ-
+Fsquid:S1659"#Declare "email" on a separate line.(È§‘ıÿÿÿÿ8óÒşÇ-
+Csquid:S2068," Remove this hard-coded password.(€õïøúÿÿÿÿ8óÒşÇ-
+Jsquid:S1659«"&Declare "tempLang" on a separate line.(Âå·åûÿÿÿÿ8óÒşÇ-
+Jsquid:S1659Õ"&Declare "tempLang" on a separate line.(Ö„ˆúıÿÿÿÿ8óÒşÇ-
+Gsquid:S1659"$Declare "delBtn" on a separate line.(´ä¤Åüÿÿÿÿ8óÒşÇ-
+Isquid:S1659"&Declare "userLang" on a separate line.(ƒäêŠüÿÿÿÿ8óÒşÇ-
+W
+squid:S106¶"9Replace this use of System.out or System.err by a logger.(Â–‘ö8óÒşÇ-
+Gsquid:S1148ã"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8óÒşÇ-
+Isquid:S1659"&Declare "firstBtn" on a separate line.(´ä¤Åüÿÿÿÿ8óÒşÇ-
+Fsquid:S1148="#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8óÒşÇ-
+[
+squid:S106&"9Replace this use of System.out or System.err by a logger.(¯³‰ùÿÿÿÿ8óÒşÇ-
+\
+squid:S106î"9Replace this use of System.out or System.err by a logger.(©şêÜúÿÿÿÿ8óÒşÇ-
+\
+squid:S106™"9Replace this use of System.out or System.err by a logger.(©şêÜúÿÿÿÿ8óÒşÇ-
+[
+squid:S1068"9Replace this use of System.out or System.err by a logger.(òùô›ıÿÿÿÿ8óÒşÇ-
+jsquid:S2095-"GUse try-with-resources or close this "Statement" in a "finally" clause.(é°Áµşÿÿÿÿ8óÒşÇ-
+Ksquid:S1659«"'Declare "tempEmail" on a separate line.(Âå·åûÿÿÿÿ8óÒşÇ-
+Esquid:S1659Á"&Declare "tempLang" on a separate line.(É²Íè8óÒşÇ-
+Esquid:S1659""Declare "name" on a separate line.(È§‘ıÿÿÿÿ8óÒşÇ-
+[
+squid:S106M"9Replace this use of System.out or System.err by a logger.(”úİâşÿÿÿÿ8óÒşÇ-
+Lsquid:S1659")Declare "isConnected" on a separate line.(È§‘ıÿÿÿÿ8óÒşÇ-
+Gsquid:S1148»"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8óÒşÇ-
+ksquid:S2095ê"GUse try-with-resources or close this "Statement" in a "finally" clause.(õ›«Ùşÿÿÿÿ8óÒşÇ-
+jsquid:S2095T"GUse try-with-resources or close this "Statement" in a "finally" clause.(¿çêşşÿÿÿÿ8óÒşÇ-
+vsquid:S00117Å"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š½ĞÚıÿÿÿÿ8óÒşÇ-
+Gsquid:S1148Í"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8óÒşÇ-
+vsquid:S00117Ú"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—ÿÍşÿÿÿÿ8óÒşÇ-
+lsquid:S2259¸"MA "NullPointerException" could be thrown; "insertStatement" is nullable here.(”Úˆˆ8óÒşÇ-
+Gsquid:S1148©"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8óÒşÇ-
+Hsquid:S1659"%Declare "lastBtn" on a separate line.(´ä¤Åüÿÿÿÿ8óÒşÇ-
+Fsquid:S1148_"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8óÒşÇ-
+Lsquid:S1659")Declare "previousBtn" on a separate line.(´ä¤Åüÿÿÿÿ8óÒşÇ-
+Œ"squid:ClassVariableVisibilityCheck"RMake oldway a static final constant or non-public and provide accessors if needed.(ÿñ·’şÿÿÿÿ8óÒşÇ-
+Fsquid:S1148z"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8óÒşÇ-
+\
+squid:S106¹"9Replace this use of System.out or System.err by a logger.(¿ÿ¸ûÿÿÿÿ8óÒşÇ-
+\
+squid:S106°"9Replace this use of System.out or System.err by a logger.(’‹úÿÿÿÿ8óÒşÇ-
+ssquid:S2095Ü"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Õ¥ûüÿÿÿÿ8óÒşÇ-
+Gsquid:S1148ƒ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8óÒşÇ-
+jsquid:S2095T"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(¿çêşşÿÿÿÿ8óÒşÇ-
+isquid:CommentedOutCodeLine."<This block of commented-out lines of code should be removed.(¿ÏÔ8óÒşÇ-

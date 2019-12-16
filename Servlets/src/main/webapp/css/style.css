@@ -1,0 +1,24 @@
+
+
+body {
+    font-family: Gruppo;
+    font-size: 20px;
+    color: gold;
+    background-color: black;
+}
+a{
+    margin: auto;
+    background-color: black;
+    color: gold;
+}
+a:hover{
+    margin: auto;
+    background-color: gold;
+    color: black;
+}
+h1{
+    color: gold;
+}
+h3{
+    color: gold;
+}

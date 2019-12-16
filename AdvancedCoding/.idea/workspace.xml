@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2ad8a775-b197-4fef-9815-2e5c6983fa2e" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="619" />
+    <option name="y" value="-8" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectId" id="1T6lLYbXb15xQd70ywc1Sy2pyM0" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.HashMapTest.testGreeter">
+    <configuration name="HashMapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AdvancedCoding" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ignas.hashmap.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ignas.hashmap" />
+      <option name="MAIN_CLASS_NAME" value="com.ignas.hashmap.HashMapTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HashMapTest.testEitherOr" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AdvancedCoding" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ignas.hashmap.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ignas.hashmap" />
+      <option name="MAIN_CLASS_NAME" value="com.ignas.hashmap.HashMapTest" />
+      <option name="METHOD_NAME" value="testEitherOr" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HashMapTest.testGreeter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AdvancedCoding" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ignas.hashmap.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ignas.hashmap" />
+      <option name="MAIN_CLASS_NAME" value="com.ignas.hashmap.HashMapTest" />
+      <option name="METHOD_NAME" value="testGreeter" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HashMapTest.testPredicate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AdvancedCoding" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ignas.hashmap.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ignas.hashmap" />
+      <option name="MAIN_CLASS_NAME" value="com.ignas.hashmap.HashMapTest" />
+      <option name="METHOD_NAME" value="testPredicate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HashMapTest.testSimple" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AdvancedCoding" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ignas.hashmap.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ignas.hashmap" />
+      <option name="MAIN_CLASS_NAME" value="com.ignas.hashmap.HashMapTest" />
+      <option name="METHOD_NAME" value="testSimple" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.HashMapTest" />
+      <item itemvalue="JUnit.HashMapTest.testEitherOr" />
+      <item itemvalue="JUnit.HashMapTest.testGreeter" />
+      <item itemvalue="JUnit.HashMapTest.testPredicate" />
+      <item itemvalue="JUnit.HashMapTest.testSimple" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HashMapTest.testGreeter" />
+        <item itemvalue="JUnit.HashMapTest.testSimple" />
+        <item itemvalue="JUnit.HashMapTest" />
+        <item itemvalue="JUnit.HashMapTest.testPredicate" />
+        <item itemvalue="JUnit.HashMapTest.testEitherOr" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2ad8a775-b197-4fef-9815-2e5c6983fa2e" name="Default Changelist" comment="" />
+      <created>1561874878300</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1561874878300</updated>
+      <workItem from="1572788373307" duration="36000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="HashMapTest_testGreeter - 2019.06.30 at 15h 14m 52s.xml">
+      <configuration name="HashMapTest.testGreeter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashMapTest_testGreeter - 2019.06.30 at 15h 15m 19s.xml">
+      <configuration name="HashMapTest.testGreeter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashMapTest_testGreeter - 2019.06.30 at 15h 17m 24s.xml">
+      <configuration name="HashMapTest.testGreeter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashMapTest_testGreeter - 2019.06.30 at 15h 21m 29s.xml">
+      <configuration name="HashMapTest.testGreeter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashMapTest_testGreeter - 2019.06.30 at 15h 30m 56s.xml">
+      <configuration name="HashMapTest.testGreeter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashMapTest_testGreeter - 2019.06.30 at 15h 31m 00s.xml">
+      <configuration name="HashMapTest.testGreeter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashMapTest_testGreeter - 2019.06.30 at 15h 31m 52s.xml">
+      <configuration name="HashMapTest.testGreeter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashMapTest_testGreeter - 2019.06.30 at 15h 35m 48s.xml">
+      <configuration name="HashMapTest.testGreeter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashMapTest_testGreeter - 2019.06.30 at 15h 37m 26s.xml">
+      <configuration name="HashMapTest.testGreeter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashMapTest_testGreeter - 2019.06.30 at 15h 38m 54s.xml">
+      <configuration name="HashMapTest.testGreeter" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>names</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+</project>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Button fx:id="restart" layoutX="265.0" layoutY="180.0" mnemonicParsing="false" onAction="#restart" text="Restart" />
+      <Label layoutX="47.0" layoutY="150.0" text="Countdown: " />
+      <Label layoutX="40.0" layoutY="184.0" text="Correct words:" />
+      <TextField fx:id="typeWord" layoutX="224.0" layoutY="146.0" onKeyPressed="#press" />
+      <Label fx:id="countdown" layoutX="125.0" layoutY="150.0" text="60" />
+      <Label fx:id="wpm" layoutX="124.0" layoutY="184.0" text="Label" />
+      <Label fx:id="lb1" layoutX="35.0" layoutY="50.0" text="kava" />
+      <Label fx:id="lb6" layoutX="270.0" layoutY="50.0" text="egg" />
+      <Label fx:id="lb3" layoutX="131.0" layoutY="50.0" text="tetis" />
+      <Label fx:id="lb5" layoutX="225.0" layoutY="52.0" text="vista" />
+      <Label fx:id="lb4" layoutX="173.0" layoutY="50.0" text="ruta" />
+      <Label fx:id="lb2" layoutX="81.0" layoutY="50.0" text="mama" />
+      <Label fx:id="lb7" layoutX="317.0" layoutY="50.0" text="baba" />
+      <Label fx:id="lb14" layoutX="82.0" layoutY="90.0" text="board" />
+      <Label fx:id="lb13" layoutX="34.0" layoutY="90.0" text="head" />
+      <Label fx:id="lb12" layoutX="563.0" layoutY="52.0" text="brick" />
+      <Label fx:id="lb11" layoutX="515.0" layoutY="52.0" text="kede" />
+      <Label fx:id="lb10" layoutX="464.0" layoutY="52.0" text="stalas" />
+      <Label fx:id="lb9" layoutX="417.0" layoutY="52.0" text="vanduo" />
+      <Label fx:id="lb8" layoutX="362.0" layoutY="52.0" text="senelis" />
+      <Label fx:id="lb15" layoutX="131.0" layoutY="90.0" text="lamp" />
+      <Label fx:id="lb20" layoutX="367.0" layoutY="92.0" text="door" />
+      <Label fx:id="lb17" layoutX="228.0" layoutY="90.0" text="sun" />
+      <Label fx:id="lb19" layoutX="317.0" layoutY="90.0" text="sky" />
+      <Label fx:id="lb18" layoutX="270.0" layoutY="90.0" text="moon" />
+      <Label fx:id="lb16" layoutX="173.0" layoutY="90.0" text="glass" />
+      <Label fx:id="lb21" layoutX="417.0" layoutY="90.0" text="drink" />
+      <Label fx:id="lb22" layoutX="464.0" layoutY="92.0" text="java" />
+      <Label fx:id="lb23" layoutX="507.0" layoutY="92.0" text="compile" />
+      <Label fx:id="lb24" layoutX="563.0" layoutY="92.0" text="error" />
+      <Label fx:id="score" layoutX="251.0" layoutY="231.0" text="Label" />
+   </children>
+</AnchorPane>

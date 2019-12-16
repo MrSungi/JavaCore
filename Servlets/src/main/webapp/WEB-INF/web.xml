@@ -1,0 +1,198 @@
+<web-app>
+    <!-- 0. Hello world Servlet -->
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>com.ignas.ex0_helloservlet.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>FingeringServlet</servlet-name>
+        <servlet-class>com.ignas.ex_fingering.FingeringServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FingeringServlet</servlet-name>
+        <url-pattern>/fingering</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Greeter</servlet-name>
+        <servlet-class>com.ignas.ex1_querystring.Greeting</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Greeter</servlet-name>
+        <url-pattern>/greeter</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- 2. Working with form data -->
+    <servlet>
+        <servlet-name>RegistrationServlet</servlet-name>
+        <servlet-class>com.ignas.ex2_formdata.RegistrationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrationServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <!-- 4. File uploads -->
+    <servlet>
+        <servlet-name>FileUpload</servlet-name>
+        <servlet-class>com.ignas.ex4_fileupload.FileUpload</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileUpload</servlet-name>
+        <url-pattern>/FileUpload</url-pattern>
+    </servlet-mapping>
+
+    <!-- USER INFO -->
+    <servlet>
+        <servlet-name>UserInfo</servlet-name>
+        <servlet-class>com.ignas.ex1_querystring.UserInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserInfo</servlet-name>
+        <url-pattern>/userinfo</url-pattern>
+    </servlet-mapping>
+
+    <!-- 5. Filters  -->
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.ignas.ex5_filters.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/SecuredServlet</url-pattern>
+        <url-pattern>/ShowRequestHeaders</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>SecuredServlet</servlet-name>
+        <servlet-class>com.ignas.ex5_filters.SecuredServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SecuredServlet</servlet-name>
+        <url-pattern>/SecuredServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Change the order and you will see that the request to secured servlet will not be measured if the user does not have correct credentials -->
+    <filter>
+        <filter-name>PerfFilter</filter-name>
+        <filter-class>com.ignas.ex5_filters.PerformanceFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PerfFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Session data BEGIN -->
+    <!-- 6. Hidden Fields Initial Servlet -->
+    <servlet>
+        <servlet-name>HiddenFieldsInitial</servlet-name>
+        <servlet-class>com.ignas.ex6_sessiondata.ex1_hiddenfields.HiddenFieldsInitial</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HiddenFieldsInitial</servlet-name>
+        <url-pattern>/HiddenFieldsInitial</url-pattern>
+    </servlet-mapping>
+
+    <!-- 6.1 Hidden Fields Subsequent Servlet -->
+    <servlet>
+        <servlet-name>HiddenFieldsSubsequent</servlet-name>
+        <servlet-class>com.ignas.ex6_sessiondata.ex1_hiddenfields.HiddenFieldsSubsequent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HiddenFieldsSubsequent</servlet-name>
+        <url-pattern>/HiddenFieldsSubsequent</url-pattern>
+    </servlet-mapping>
+
+    <!-- 6.3 URL Rewriting Initial Servlet -->
+    <servlet>
+        <servlet-name>URLRewritingInitial</servlet-name>
+        <servlet-class>com.ignas.ex6_sessiondata.ex2_urlrewriting.URLRewritingInitial</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>URLRewritingInitial</servlet-name>
+        <url-pattern>/URLRewritingInitial</url-pattern>
+    </servlet-mapping>
+
+    <!-- 6.4 URL Rewriting  Subsequent Servlet -->
+    <servlet>
+        <servlet-name>URLRewritingSubsequent</servlet-name>
+        <servlet-class>com.ignas.ex6_sessiondata.ex2_urlrewriting.URLRewritingSubsequent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>URLRewritingSubsequent</servlet-name>
+        <url-pattern>/URLRewritingSubsequent</url-pattern>
+    </servlet-mapping>
+
+    <!-- 6.4 CookiesInitial-->
+    <servlet>
+        <servlet-name>CookiesInitial</servlet-name>
+        <servlet-class>com.ignas.ex6_sessiondata.ex3_cookies.CookiesInitial</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookiesInitial</servlet-name>
+        <url-pattern>/CookiesInitial</url-pattern>
+    </servlet-mapping>
+
+ <!-- 6.4 CookiesSubsequent-->
+    <servlet>
+        <servlet-name>CookiesSubsequent</servlet-name>
+        <servlet-class>com.ignas.ex6_sessiondata.ex3_cookies.CookiesSubsequent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookiesSubsequent</servlet-name>
+        <url-pattern>/CookiesSubsequent</url-pattern>
+    </servlet-mapping>
+
+ <!-- 6.4 CookiesFinal-->
+    <servlet>
+        <servlet-name>CookiesFinal</servlet-name>
+        <servlet-class>com.ignas.ex6_sessiondata.ex3_cookies.CookiesFinal</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookiesFinal</servlet-name>
+        <url-pattern>/CookiesFinal</url-pattern>
+    </servlet-mapping>
+
+
+   <!-- 6.4 Session Initial-->
+    <servlet>
+        <servlet-name>SessionInitial</servlet-name>
+        <servlet-class>com.ignas.ex6_sessiondata.ex4_session.SessionInitial</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionInitial</servlet-name>
+        <url-pattern>/SessionInitial</url-pattern>
+    </servlet-mapping>
+
+ <!-- 6.4 Session Subsequent-->
+    <servlet>
+        <servlet-name>SessionSubsequent</servlet-name>
+        <servlet-class>com.ignas.ex6_sessiondata.ex4_session.SessionSubsequent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionSubsequent</servlet-name>
+        <url-pattern>/SessionSubsequent</url-pattern>
+    </servlet-mapping>
+
+ <!-- 6.4 Session Final-->
+    <servlet>
+        <servlet-name>SessionFinal</servlet-name>
+        <servlet-class>com.ignas.ex6_sessiondata.ex4_session.SessionFinal</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionFinal</servlet-name>
+        <url-pattern>/SessionFinal</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+</web-app>
