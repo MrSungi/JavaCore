@@ -21,6 +21,18 @@ public class StudentInfo implements Serializable {
         return programs;
     }
 
+    public ArrayList<StudyProgram> getFilteredStudyPrograms(String filter) {
+        ArrayList<StudyProgram> filt = new ArrayList<StudyProgram>();
+        filter = filter.toLowerCase();
+        for(StudyProgram s:programs){
+            if(s.getDepartment().toLowerCase().contains(filter) || s.getName().toLowerCase().contains(filter)){
+                filt.add(s);
+            }
+        }
+        return filt;
+    }
+
+
     public StudyProgram getStudyProgramInfo(int id) {
         for (StudyProgram sp : programs) {
             if (sp.getCode() == id) {
