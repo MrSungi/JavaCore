@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="403.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vgtu.ignas.view.controller.MainController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <Menu mnemonicParsing="false" text="Add">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#openAddStudyProgram" text="Add Study program" />
+                        <MenuItem mnemonicParsing="false" text="Add Group" />
+                        <MenuItem mnemonicParsing="false" text="Add Student" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Delete">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#deleteSP" text="Delete Study program" />
+                        <MenuItem mnemonicParsing="false" text="Delete Group" />
+                        <MenuItem mnemonicParsing="false" text="Delete Student" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Edit Study program" />
+                    <MenuItem mnemonicParsing="false" text="Edit Group" />
+                        <MenuItem mnemonicParsing="false" text="Edit Student" />
+                    </items>
+                  </Menu>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <TextField fx:id="SPfilter" onKeyReleased="#showSP" />
+                  <TableView fx:id="SPtable" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox fx:id="groupTable" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <TextField fx:id="SPfilter1" onKeyReleased="#showSP" />
+                  <TableView fx:id="SPtable1" prefHeight="200.0" prefWidth="200.0">
+                     <columns>
+                        <TableColumn prefWidth="75.0" text="C1" />
+                        <TableColumn prefWidth="75.0" text="C2" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
