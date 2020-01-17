@@ -15,12 +15,24 @@ import java.util.ResourceBundle;
 public class SPcontroller implements Initializable {
 
     @FXML
-    private ComboBox SPdepartment;
+    private ComboBox<String> SPdepartment;
+
+    @FXML
+    private ComboBox<String> UpdateSPdepartment;
+
+    @FXML
+    private TextField UpdateSpName;
 
     @FXML
     private TextField SPname;
 
     private StudentInfo studentInfo = null;
+    private int selectedId;
+
+
+    public void setSelectedId(int id){
+        selectedId = id;
+    }
 
     public void setStudentInfo(StudentInfo s){
         studentInfo = s;
@@ -28,7 +40,7 @@ public class SPcontroller implements Initializable {
 
     public void saveSP(Event e){
         String name = SPname.getText();
-        String department = (String) SPdepartment.getSelectionModel().getSelectedItem();
+        String department = SPdepartment.getSelectionModel().getSelectedItem();
         if(name.trim().length()<3){
             Alert err = new Alert(Alert.AlertType.ERROR);
             err.setTitle("Error");
@@ -46,12 +58,31 @@ public class SPcontroller implements Initializable {
         }
     }
 
+    public void updateSP(Event e){
+        String name = UpdateSpName.getText();
+        String department = SPdepartment.getSelectionModel().getSelectedItem();
+        if(name.trim().length()<3){
+            Alert err = new Alert(Alert.AlertType.ERROR);
+            err.setTitle("Error");
+            err.setHeaderText("Incorrect Study program name");
+            err.setContentText("Study program name must have more than 3 characters!");
+            err.showAndWait();
+        }
+        else{
+            if(studentInfo!=null){
+                System.out.println("Updated");
+                studentInfo.updateStudyProgram(selectedId,name,department);
+                Stage stage = (Stage)SPdepartment.getScene().getWindow();
+                stage.close();
+            }
+        }
+    }
+
 
 
     public void initialize(URL location, ResourceBundle resources) {
-        SPdepartment.getItems().add("IT department");
-        SPdepartment.getItems().add("MAT department");
+        SPdepartment.getItems().add("IT katedra");
+        SPdepartment.getItems().add("IT asdasdasd");
         SPdepartment.getSelectionModel().selectFirst();
-
     }
 }

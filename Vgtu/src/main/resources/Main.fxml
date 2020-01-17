@@ -17,22 +17,22 @@
                   <Menu mnemonicParsing="false" text="Add">
                     <items>
                       <MenuItem mnemonicParsing="false" onAction="#openAddStudyProgram" text="Add Study program" />
-                        <MenuItem mnemonicParsing="false" text="Add Group" />
-                        <MenuItem mnemonicParsing="false" text="Add Student" />
+                        <MenuItem mnemonicParsing="false" onAction="#openAddGroup" text="Add Group" />
+                        <MenuItem mnemonicParsing="false" onAction="#openAddStudent" text="Add Student" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Delete">
                     <items>
                       <MenuItem mnemonicParsing="false" onAction="#deleteSP" text="Delete Study program" />
-                        <MenuItem mnemonicParsing="false" text="Delete Group" />
-                        <MenuItem mnemonicParsing="false" text="Delete Student" />
+                        <MenuItem mnemonicParsing="false" onAction="#deleteGroup" text="Delete Group" />
+                        <MenuItem mnemonicParsing="false" onAction="#deleteStudent" text="Delete Student" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Edit Study program" />
-                    <MenuItem mnemonicParsing="false" text="Edit Group" />
-                        <MenuItem mnemonicParsing="false" text="Edit Student" />
+                      <MenuItem mnemonicParsing="false" onAction="#openUpdateStudyProgram" text="Edit Study program" />
+                    <MenuItem mnemonicParsing="false" onAction="#openUpdateGroup" text="Edit Group" />
+                        <MenuItem mnemonicParsing="false" onAction="#openUpdateStudent" text="Edit Student" />
                     </items>
                   </Menu>
             </items>
@@ -49,18 +49,18 @@
             <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
                   <TextField fx:id="SPfilter" onKeyReleased="#showSP" />
-                  <TableView fx:id="SPtable" prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="SPtable" onMouseClicked="#showGroup" prefHeight="200.0" prefWidth="200.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                      <TableColumn prefWidth="138.0" text="C1" />
+                      <TableColumn prefWidth="152.0" text="C2" />
                     </columns>
                   </TableView>
                </children>
             </VBox>
-            <VBox fx:id="groupTable" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="378.0" prefWidth="307.0">
                <children>
-                  <TextField fx:id="SPfilter1" onKeyReleased="#showSP" />
-                  <TableView fx:id="SPtable1" prefHeight="200.0" prefWidth="200.0">
+                  <TextField fx:id="groupFilter" onKeyReleased="#showFilteredGroup" />
+                  <TableView fx:id="groupTable" onMouseClicked="#showStudent" prefHeight="200.0" prefWidth="200.0">
                      <columns>
                         <TableColumn prefWidth="75.0" text="C1" />
                         <TableColumn prefWidth="75.0" text="C2" />
@@ -70,5 +70,17 @@
             </VBox>
          </children>
       </HBox>
+      <VBox prefHeight="185.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="studentFilter" onKeyReleased="#showFilteredStudent" />
+            <TableView fx:id="studentTable" prefHeight="159.0" prefWidth="600.0">
+              <columns>
+                  <TableColumn prefWidth="118.0" />
+                <TableColumn prefWidth="107.0" text="C1" />
+                <TableColumn prefWidth="146.0" text="C2" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
    </children>
 </VBox>

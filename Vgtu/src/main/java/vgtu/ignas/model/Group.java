@@ -9,7 +9,6 @@ public class Group implements Serializable {
     String code;
     StudyForm form = StudyForm.INDIRECT;
     int year;
-    StudyProgram studyProgram;
     ArrayList<Student> students = new ArrayList();
     private static int idGenerator = 1;
 
@@ -77,7 +76,4 @@ public class Group implements Serializable {
         return students;
     }
 
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
-    }
 }//class

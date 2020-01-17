@@ -32,6 +32,30 @@ public class StudentInfo implements Serializable {
         return filt;
     }
 
+    public ArrayList<Group> getFilteredGroups(String filter) {
+        ArrayList<Group> filt = new ArrayList<Group>();
+        filter = filter.toLowerCase();
+
+        for(Group s:getAllGroups()){
+            if(s.getCode().toLowerCase().contains(filter)){
+                filt.add(s);
+            }
+        }
+        return filt;
+    }
+
+    public ArrayList<Student> getFilteredStudents(String filter) {
+        ArrayList<Student> filt = new ArrayList<Student>();
+        filter = filter.toLowerCase();
+
+        for(Student s:getAllStudents()){
+            if(s.getName().toLowerCase().contains(filter) || s.getSurname().toLowerCase().contains(filter)){
+                filt.add(s);
+            }
+        }
+        return filt;
+    }
+
 
     public StudyProgram getStudyProgramInfo(int id) {
         for (StudyProgram sp : programs) {
