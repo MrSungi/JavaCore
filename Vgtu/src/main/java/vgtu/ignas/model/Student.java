@@ -8,29 +8,18 @@ public class Student implements Serializable {
     int id;
     String name, surname;
     Group group;
-    boolean studies;
-    private static int idGenerator = 1;
     int gId;
 
-    public Student(int gId, String name, String surname, Group group, boolean studies) {
+    public Student(int gId, String name, String surname, Group group) {
         this.gId = gId;
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.group = group;
-        this.studies = studies;
-        id = idGenerator++;
-    }
-public String studies(boolean studies){
-    if(studies){
-        return  "studies";
-    }else{
-        return "does not study";
-    }}
 
-    public static void setCodeGenerate(int id){
-        idGenerator = id;
     }
+
+
 
     public int getgId() {
         return gId;
@@ -41,8 +30,7 @@ public String studies(boolean studies){
         return id +
                 ", '" + name + '\'' +
                 ", '" + surname + '\'' +
-                ", '" + group + '\'' +
-                ", '" + studies(studies) + '\'';
+                ", '" + group + '\'';
     }
 
     public int getId() {
@@ -69,13 +57,6 @@ public String studies(boolean studies){
         this.surname = surname;
     }
 
-    public boolean isStudies() {
-        return studies;
-    }
-
-    public void setStudies(boolean studies) {
-        this.studies = studies;
-    }
 
     public Group getGroup() {
         return group;

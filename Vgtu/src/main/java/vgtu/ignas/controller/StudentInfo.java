@@ -6,25 +6,84 @@ import vgtu.ignas.model.StudyForm;
 import vgtu.ignas.model.StudyProgram;
 
 import java.io.Serializable;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class StudentInfo implements Serializable {
+    private String url = "jdbc:mysql://localhost:3306/university";
+    private String user = "root";
+    private String password = "";
+    private Connection connection = null;
+
     ArrayList<StudyProgram> programs = new ArrayList();
 
-    public StudyProgram createStudyProgram(String name, String department) {
-        StudyProgram newSP = new StudyProgram(name, department);
-        programs.add(newSP);
-        return newSP;
+    public void connectToDB(){
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(url, user, password);
+            System.out.println("successfully connected");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void disconnectFromDB(){
+        try {
+            connection.close();
+            System.out.println("successfully disconnected");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void createStudyProgram(String name, String department){
+        this.connectToDB();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into studyprogram"
+                    + "(program_id, name, department) values "
+                    + "(null, ?, ?)");
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, department);
+            preparedStatement.executeUpdate();
+            System.out.println("added");
+            System.out.println(name + "sss");
+            System.out.println(department);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        this.disconnectFromDB();
     }
 
     public ArrayList<StudyProgram> getAllStudyPrograms() {
-        return programs;
+        ArrayList<StudyProgram> returnList = new ArrayList<StudyProgram>();
+        this.connectToDB();
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from studyprogram");
+            while (resultSet.next()){
+                int code = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String department = resultSet.getString(3);
+                StudyProgram newSP = new StudyProgram(name, department);
+                newSP.setCode(code);
+                returnList.add(newSP);
+            }
+        }catch (Exception e){
+
+        }
+        this.disconnectFromDB();
+        return returnList;
     }
 
     public ArrayList<StudyProgram> getFilteredStudyPrograms(String filter) {
         ArrayList<StudyProgram> filt = new ArrayList<StudyProgram>();
         filter = filter.toLowerCase();
-        for(StudyProgram s:programs){
+        for(StudyProgram s:getAllStudyPrograms()){
             if(s.getDepartment().toLowerCase().contains(filter) || s.getName().toLowerCase().contains(filter)){
                 filt.add(s);
             }
@@ -66,16 +125,6 @@ public class StudentInfo implements Serializable {
         return null;
     }
 
-    public StudyProgram getStudyProgramInfo(String name) {
-        for (StudyProgram sp : programs) {
-            if (sp.getName().equals(name)) {
-                return sp;
-            }
-        }
-        return null;
-
-    }
-
     public Group getGroupInfo(int id){
         ArrayList<Group> group = getAllGroups();
         if(group!=null){
@@ -100,134 +149,213 @@ public class StudentInfo implements Serializable {
     }
 
     public void deleteStudyProgram(int id) {
-        StudyProgram s = getStudyProgramInfo(id);
-        if (s != null) {
-            programs.remove(s);
+
+        this.connectToDB();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("delete from studyprogram where program_id = ?");
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+
         }
+        this.disconnectFromDB();
     }
 
     public void updateStudyProgram(int id, String name, String departament) {
-        StudyProgram s = getStudyProgramInfo(id);
-        if (s != null) {
-            if (name != null && name.trim().length() > 0) {
-                s.setName(name);
-            }
-            if(departament != null && departament.trim().length() > 1){
-                s.setDepartment(departament);
-            }
+        this.connectToDB();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement("update studyprogram set name = ?, department = ? where program_id = ?");
+            preparedStatement.setString(1,name);
+            preparedStatement.setString(2,departament);
+            preparedStatement.setInt(3,id);
+            preparedStatement.executeUpdate();
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        this.disconnectFromDB();
     }
 
-    public void updateStudent(int id, String name, String surname, Group group, boolean bool){
-        Student s = getStudentInfo(id);
-        if(s!=null){
-            if(name != null && name.trim().length()>2){
-                s.setName(name);
-            }
-            if(surname != null && surname.trim().length()>3){
-                s.setSurname(surname);
-            }
-            if(group!=null){
-                s.setGroup(group);
-            }
-            if(bool!=s.isStudies()){
-                s.setStudies(bool);
-            }
+    public void updateStudent(int id, String name, String surname, int group_id){
+        this.connectToDB();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement("update student set name = ?, surname = ?, group_id = ? where student.student_id = ?");
+            preparedStatement.setString(1,name);
+            preparedStatement.setString(2,surname);
+            preparedStatement.setInt(3,group_id);
+            preparedStatement.setInt(4,id);
+            preparedStatement.executeUpdate();
+
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        this.disconnectFromDB();
     }
 
-    public Group createGroup(int spId, String code, StudyForm s, int year){
-        StudyProgram sp = getStudyProgramInfo(spId);
-        if(sp!=null){
-            Group group = new Group(spId, code, s, year);
-            sp.addGroup(group);
-            return group;
+    public void createGroup(int spId, String code, StudyForm s, int year){
+        this.connectToDB();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `groups` (`group_id`, `code`, `form`, `year`, `program_id`) "
+                                                      + "VALUES (NULL, ?, ?, ?, ?)");
+            preparedStatement.setString(1, code);
+            preparedStatement.setString(2, s.toString());
+            preparedStatement.setInt(3, year);
+            preparedStatement.setInt(4, spId);
+            preparedStatement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
-        return null;
+        this.disconnectFromDB();
     }
 
     public ArrayList<Group> getStudyProgramGroups(int spId){
-        StudyProgram sp = getStudyProgramInfo(spId);
-        if(sp!=null){
-            return sp.getGroups();
+        ArrayList<Group> returnList = new ArrayList<Group>();
+        this.connectToDB();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from groups where program_id = ?");
+            preparedStatement.setInt(1,spId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt(1);
+                String code = resultSet.getString(2);
+                StudyForm form = StudyForm.valueOf(resultSet.getString(3));
+                int year = resultSet.getInt(4);
+                int SpId = resultSet.getInt(5);
+                Group group = new Group(SpId,code,form,year);
+                group.setId(id);
+                returnList.add(group);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        return null;
+        this.disconnectFromDB();
+        return returnList;
     }
 
     public ArrayList<Group> getAllGroups(){
-        ArrayList<Group> full = new ArrayList();
-        for(StudyProgram s:programs){
-            full.addAll(s.getGroups());
+        ArrayList<Group> returnList = new ArrayList<Group>();
+        this.connectToDB();
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from groups");
+            while (resultSet.next()){
+                int id = resultSet.getInt(1);
+                String code = resultSet.getString(2);
+                StudyForm form = StudyForm.valueOf(resultSet.getString(3));
+                int year = resultSet.getInt(4);
+                int SpId = resultSet.getInt(5);
+                Group group = new Group(SpId,code,form,year);
+                group.setId(id);
+                returnList.add(group);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        return full;
+        this.disconnectFromDB();
+        return returnList;
     }
 
     public void deleteGroup(int gId){
-        for(StudyProgram s:programs){
-            for(Group g:s.getGroups()){
-                if(g.getId()==gId){
-                    s.getGroups().remove(g);
-                    return;
-                }
-            }
+        this.connectToDB();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("delete from groups where group_id = ?");
+            preparedStatement.setInt(1, gId);
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+
         }
+        this.disconnectFromDB();
     }
 
     public void updateGroup(int id, String code, StudyForm form, int year){
-        ArrayList<Group> group = getAllGroups();
-        if(group!=null){
-        for(Group g:group){
-            if(id==g.getId()){
-                if(code!=null && code.trim().length() > 3){
-                    g.setCode(code);
-                }
-                if(form!=null){
-                    g.setForm(form);
-                }
-                if(year > 1996 && year <2020 ){
-                    g.setYear(year);
-                }
-            }
-            }
+        this.connectToDB();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement("update groups set code = ?, form = ?, year = ? where group_id = ?");
+            preparedStatement.setString(1,code);
+            preparedStatement.setString(2,form.toString());
+            preparedStatement.setInt(3,year);
+            preparedStatement.setInt(4,id);
+            preparedStatement.executeUpdate();
+
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        this.disconnectFromDB();
     }
 
-    public Student registerStudent(int gId, String name, String surname,Group group, boolean studies ){
-        Group g = getGroupInfo(gId);
-        if(g!=null){
-            Student student = new Student(gId, name, surname, group, studies);
-            g.addStudent(student);
-            return student;
+    public void registerStudent(int gId, String name, String surname){
+        this.connectToDB();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `student` " +
+                            "(`student_id`, `name`, `surname`, `group_id`)" +
+                            " VALUES (NULL, ?, ?, ?)");
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, surname);
+            preparedStatement.setInt(3, gId);
+            preparedStatement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
-        return null;
+        this.disconnectFromDB();
     }
 
     public ArrayList<Student> getGroupStudents(int gId){
-        Group gr = getGroupInfo(gId);
-        if(gr!=null){
-            return gr.getStudents();
+        ArrayList<Student> returnList = new ArrayList<Student>();
+        this.connectToDB();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from student where group_id = ?");
+            preparedStatement.setInt(1,gId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String surname = resultSet.getString(3);
+                int grId = resultSet.getInt(4);
+                Student student = new Student(grId,name,surname,getGroupInfo(grId));
+                student.setId(id);
+                returnList.add(student);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        return null;
+        this.disconnectFromDB();
+        return returnList;
     }
 
     public ArrayList<Student> getAllStudents(){
-        ArrayList<Student> all = new ArrayList();
-        for(Group g:getAllGroups()){
-            all.addAll(g.getStudents());
+        ArrayList<Student> returnList = new ArrayList<Student>();
+        this.connectToDB();
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from student");
+            while (resultSet.next()){
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String surname = resultSet.getString(3);
+                int gId = resultSet.getInt(4);
+                Student student = new Student(gId,name,surname,getGroupInfo(gId));
+                student.setId(id);
+                returnList.add(student);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        return all;
+        this.disconnectFromDB();
+        return returnList;
     }
 
     public void removeStudent(int sId){
-        for(StudyProgram s:programs){
-            for(Group g:s.getGroups()){
-                for(Student st:g.getStudents())
-                if(st.getId()==sId){
-                    g.getStudents().remove(st);
-                    return;
-                }
-            }
+        this.connectToDB();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("delete from student where student_id = ?");
+            preparedStatement.setInt(1, sId);
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        this.disconnectFromDB();
     }
 
 

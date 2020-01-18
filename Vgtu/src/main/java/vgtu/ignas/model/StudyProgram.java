@@ -48,6 +48,10 @@ public class StudyProgram implements Serializable {
         this.department = department;
     }
 
+    public void setCode(int code) {
+        this.code = code;
+    }
+
     @Override
     public String toString() {
         return code +

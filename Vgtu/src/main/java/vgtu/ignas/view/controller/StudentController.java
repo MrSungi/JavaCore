@@ -72,7 +72,7 @@ public class StudentController {
             if(studentInfo!=null){
                 System.out.println("Addded");
                 Group g = studentInfo.getGroupInfo(id);
-                studentInfo.registerStudent(id,sname,ssurname,g, studies);
+                studentInfo.registerStudent(id,sname,ssurname);
             }
         }
         Stage stage = (Stage)name.getScene().getWindow();
@@ -102,8 +102,7 @@ public class StudentController {
         } else{
             if(studentInfo!=null){
                 System.out.println("Updated");
-                Group g = studentInfo.getGroupInfo(Integer.parseInt(updateID.getText()));
-                studentInfo.updateStudent(selectedId,sname,ssurname,g, studies);
+                studentInfo.updateStudent(selectedId,sname,ssurname,Integer.parseInt(updateID.getText()));
             }
         }
 
