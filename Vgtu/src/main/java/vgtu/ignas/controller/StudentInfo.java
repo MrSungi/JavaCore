@@ -17,32 +17,34 @@ public class StudentInfo implements Serializable {
 
     ArrayList<StudyProgram> programs = new ArrayList();
 
-    public void connectToDB(){
+    public boolean connectToDB(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             System.out.println("successfully connected");
+            return true;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
+        System.out.println("true");
+        return false;
     }
 
-    public void disconnectFromDB(){
+    public boolean disconnectFromDB(){
         try {
             connection.close();
             System.out.println("successfully disconnected");
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
 
     public void createStudyProgram(String name, String department){
-        this.connectToDB();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("insert into studyprogram"
                     + "(program_id, name, department) values "
@@ -56,12 +58,10 @@ public class StudentInfo implements Serializable {
         }catch (SQLException e){
             e.printStackTrace();
         }
-        this.disconnectFromDB();
     }
 
     public ArrayList<StudyProgram> getAllStudyPrograms() {
         ArrayList<StudyProgram> returnList = new ArrayList<StudyProgram>();
-        this.connectToDB();
         try{
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from studyprogram");
@@ -76,7 +76,6 @@ public class StudentInfo implements Serializable {
         }catch (Exception e){
 
         }
-        this.disconnectFromDB();
         return returnList;
     }
 
@@ -149,20 +148,15 @@ public class StudentInfo implements Serializable {
     }
 
     public void deleteStudyProgram(int id) {
-
-        this.connectToDB();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("delete from studyprogram where program_id = ?");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         }catch (Exception e){
-
         }
-        this.disconnectFromDB();
     }
 
     public void updateStudyProgram(int id, String name, String departament) {
-        this.connectToDB();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement("update studyprogram set name = ?, department = ? where program_id = ?");
             preparedStatement.setString(1,name);
@@ -173,11 +167,9 @@ public class StudentInfo implements Serializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        this.disconnectFromDB();
     }
 
     public void updateStudent(int id, String name, String surname, int group_id){
-        this.connectToDB();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement("update student set name = ?, surname = ?, group_id = ? where student.student_id = ?");
             preparedStatement.setString(1,name);
@@ -185,16 +177,12 @@ public class StudentInfo implements Serializable {
             preparedStatement.setInt(3,group_id);
             preparedStatement.setInt(4,id);
             preparedStatement.executeUpdate();
-
-
         }catch (Exception e){
             e.printStackTrace();
         }
-        this.disconnectFromDB();
     }
 
     public void createGroup(int spId, String code, StudyForm s, int year){
-        this.connectToDB();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `groups` (`group_id`, `code`, `form`, `year`, `program_id`) "
                                                       + "VALUES (NULL, ?, ?, ?, ?)");
@@ -206,12 +194,10 @@ public class StudentInfo implements Serializable {
         }catch (SQLException e){
             e.printStackTrace();
         }
-        this.disconnectFromDB();
     }
 
     public ArrayList<Group> getStudyProgramGroups(int spId){
         ArrayList<Group> returnList = new ArrayList<Group>();
-        this.connectToDB();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement("select * from groups where program_id = ?");
             preparedStatement.setInt(1,spId);
@@ -229,13 +215,11 @@ public class StudentInfo implements Serializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        this.disconnectFromDB();
         return returnList;
     }
 
     public ArrayList<Group> getAllGroups(){
         ArrayList<Group> returnList = new ArrayList<Group>();
-        this.connectToDB();
         try{
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from groups");
@@ -252,12 +236,10 @@ public class StudentInfo implements Serializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        this.disconnectFromDB();
         return returnList;
     }
 
     public void deleteGroup(int gId){
-        this.connectToDB();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("delete from groups where group_id = ?");
             preparedStatement.setInt(1, gId);
@@ -265,11 +247,9 @@ public class StudentInfo implements Serializable {
         }catch (Exception e){
 
         }
-        this.disconnectFromDB();
     }
 
     public void updateGroup(int id, String code, StudyForm form, int year){
-        this.connectToDB();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement("update groups set code = ?, form = ?, year = ? where group_id = ?");
             preparedStatement.setString(1,code);
@@ -282,11 +262,9 @@ public class StudentInfo implements Serializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        this.disconnectFromDB();
     }
 
     public void registerStudent(int gId, String name, String surname){
-        this.connectToDB();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `student` " +
                             "(`student_id`, `name`, `surname`, `group_id`)" +
@@ -295,15 +273,14 @@ public class StudentInfo implements Serializable {
             preparedStatement.setString(2, surname);
             preparedStatement.setInt(3, gId);
             preparedStatement.executeUpdate();
+            System.out.println("ok");
         }catch (SQLException e){
             e.printStackTrace();
         }
-        this.disconnectFromDB();
     }
 
     public ArrayList<Student> getGroupStudents(int gId){
         ArrayList<Student> returnList = new ArrayList<Student>();
-        this.connectToDB();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement("select * from student where group_id = ?");
             preparedStatement.setInt(1,gId);
@@ -320,13 +297,11 @@ public class StudentInfo implements Serializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        this.disconnectFromDB();
         return returnList;
     }
 
     public ArrayList<Student> getAllStudents(){
         ArrayList<Student> returnList = new ArrayList<Student>();
-        this.connectToDB();
         try{
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from student");
@@ -342,20 +317,19 @@ public class StudentInfo implements Serializable {
         }catch (Exception e){
             e.printStackTrace();
         }
-        this.disconnectFromDB();
         return returnList;
     }
 
     public void removeStudent(int sId){
-        this.connectToDB();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("delete from student where student_id = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("delete from student where student.student_id = ?");
             preparedStatement.setInt(1, sId);
             preparedStatement.executeUpdate();
+            System.out.println(getStudentInfo(sId));
+            System.out.println("deleted");
         }catch (Exception e){
             e.printStackTrace();
         }
-        this.disconnectFromDB();
     }
 
 

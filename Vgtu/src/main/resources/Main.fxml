@@ -5,6 +5,7 @@
 
 <VBox prefHeight="403.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vgtu.ignas.view.controller.MainController">
    <children>
+      <Label fx:id="connection" text="Disconnected" />
       <MenuBar>
         <menus>
           <Menu mnemonicParsing="false" text="File">
@@ -42,6 +43,12 @@
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Connection">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#connect" text="Connect" />
+                  <MenuItem mnemonicParsing="false" onAction="#disconnect" text="Disconnect" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
       <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">

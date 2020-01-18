@@ -34,7 +34,7 @@ public class Student implements Serializable {
     }
 
     public int getId() {
-        return gId;
+        return id;
     }
 
     public void setId(int id) {

@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -48,6 +45,9 @@ public class MainController implements Initializable {
 
     @FXML
     private TextField studentFilter;
+
+    @FXML
+    private Label connection;
 
     @FXML
     private TableView SPtable;
@@ -122,6 +122,22 @@ public class MainController implements Initializable {
         }
     }
 
+    public void connect(Event event){
+        if (studentInfo.connectToDB()){
+            connection.setText("Connected");
+            showSP(null);
+            showFilteredGroup(null);
+            showFilteredStudent(null);
+        }
+    }
+
+    public void disconnect(Event event){
+        studentInfo.disconnectFromDB();
+        if (studentInfo.disconnectFromDB()){
+            connection.setText("Disconnected");
+        }
+    }
+
 
     public void openAddStudyProgram(Event e) throws Exception{
         FXMLLoader load = new FXMLLoader();
@@ -152,7 +168,7 @@ public class MainController implements Initializable {
         add.setTitle("Add Group");
         add.setScene(scene);
         add.showAndWait();
-        showSP(null);
+        showFilteredGroup(null);
 
     }
 
@@ -168,7 +184,7 @@ public class MainController implements Initializable {
         add.setTitle("Add Student");
         add.setScene(scene);
         add.showAndWait();
-        showSP(null);
+        showFilteredStudent(null);
 
     }
 
@@ -209,7 +225,7 @@ public class MainController implements Initializable {
         add.setTitle("Update Group");
         add.setScene(scene);
         add.showAndWait();
-        showSP(null);
+        showFilteredGroup(null);
 
     }
 
@@ -231,7 +247,7 @@ public class MainController implements Initializable {
         add.setTitle("Update Student");
         add.setScene(scene);
         add.showAndWait();
-        showSP(null);
+        showFilteredStudent(null);
     }
 
     public void deleteSP(Event e){
@@ -265,8 +281,10 @@ public class MainController implements Initializable {
     public void deleteStudent(Event event){
         Student student = (Student) studentTable.getSelectionModel().getSelectedItem();
         if(studentInfo!=null){
+            System.out.println("Preparing to remove::");
             studentInfo.removeStudent(student.getId());
-            showFilteredGroup(null);
+            System.out.println("removed " + studentInfo.getStudentInfo(student.getId()));
+            showFilteredStudent(null);
         }else{
             Alert err = new Alert(Alert.AlertType.ERROR);
             err.setTitle("Error");
@@ -311,7 +329,6 @@ public class MainController implements Initializable {
         column8.setCellValueFactory(new PropertyValueFactory<String, Student>("group"));
         column8.setPrefWidth(200);
 
-
         SPtable.getColumns().clear();
         SPtable.getColumns().add(column1);
         SPtable.getColumns().add(column2);
@@ -325,12 +342,6 @@ public class MainController implements Initializable {
         studentTable.getColumns().add(column6);
         studentTable.getColumns().add(column7);
         studentTable.getColumns().add(column8);
-
-
-        // SPtable.getItems().add(new StudyProgram("Informacinės technologijos", "IT"));
-        // SPtable.getItems().add(new StudyProgram("Matematika", "MAT"));
-        // SPtable.getItems().add(new StudyProgram("Informacinės technologijos", "IT"));
-
 
     }
 }

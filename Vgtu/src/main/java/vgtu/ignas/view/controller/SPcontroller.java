@@ -82,7 +82,9 @@ public class SPcontroller implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
         SPdepartment.getItems().add("IT katedra");
-        SPdepartment.getItems().add("IT asdasdasd");
+        SPdepartment.getItems().add("Matematikos");
+        SPdepartment.getItems().add("Elektronikos");
+        SPdepartment.getItems().add("Finansu");
         SPdepartment.getSelectionModel().selectFirst();
     }
 }
