@@ -12,8 +12,8 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <!-- Never use or at least check the LATEST is stable -->
-            <version>LATEST</version>
+            <!-- Never use or at least check the 8.0.28 is stable -->
+            <version>8.0.28</version>
         </dependency>
     </dependencies>
 
